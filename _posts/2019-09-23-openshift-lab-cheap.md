@@ -82,6 +82,7 @@ amazon link:
   * Take out the two existing memory sticks and put in the new ones.   
   * Open the screw, and attach the SSD, make sure to screw in the SSD drive tightly
   * slide out the existing hard drive slightly but dont remvoe it
+
 4. Close the cover, but dont screw the cover back in
 5. restart the laptop with the USB left in, go through the screens and intall Windows 10 from the USB onto the SSD.
 6. **Turn off the laptop and unplug** 
