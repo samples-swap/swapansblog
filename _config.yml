@@ -1,12 +1,12 @@
 # Site settings
-title: Hux Blog
-SEOTitle: Hux Blog
+title: Swapan's Blog
+SEOTitle: Swapan's Blog
 header-img: img/home-bg.jpg
-email: huxpro@gmail.com
+email: swapan.chakrabarty@gmail.com
 description: "Software engineer"
 keyword: "openshift java"
 url: "https://swapanc.github.io"              # your host, for absolute URL
-baseurl: "/huxblog"                             # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "/swapansblog"                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
 future: true
@@ -59,7 +59,7 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: hux
+disqus_username:
 
 # Netease settings
 netease_comment: false
@@ -106,31 +106,31 @@ friends: [
     #     title: "Su",
     #     href: "http://su.gallery/"
     # },{
-        title: "乱序",
-        href: "http://mida.re/"
-    },{
-        title: "Sherry Wu",
-        href: "https://xuechundesign.github.io"
-    },{
-        title: "Luke 的自留地",
-        href: "http://hmqk1995.github.io"
-    },{
-        title: "Ebn's Blog",
-        href: "http://ebnbin.com/"
-    },{
-        title: "SmdCn's Blog",
-        href: "http://blog.smdcn.net"
-    },{
-        title: "JiyinYiyong",
-        href: "http://tiye.me/"
-    },{
-        title: "David's Game",
-        href: "https://www.ruoyaowu.com/"
-    },{
-        title: "DHong Say",
-        href: "http://dhong.co"
-    },{
-        title: "尹峰以为",
-        href: "http://ingf.github.io/"
-    }
+    #     title: "乱序",
+    #     href: "http://mida.re/"
+    # },{
+    #     title: "Sherry Wu",
+    #     href: "https://xuechundesign.github.io"
+    # },{
+    #     title: "Luke 的自留地",
+    #     href: "http://hmqk1995.github.io"
+    # },{
+    #     title: "Ebn's Blog",
+    #     href: "http://ebnbin.com/"
+    # },{
+    #     title: "SmdCn's Blog",
+    #     href: "http://blog.smdcn.net"
+    # },{
+    #     title: "JiyinYiyong",
+    #     href: "http://tiye.me/"
+    # },{
+    #     title: "David's Game",
+    #     href: "https://www.ruoyaowu.com/"
+    # },{
+    #     title: "DHong Say",
+    #     href: "http://dhong.co"
+    # },{
+    #     title: "尹峰以为",
+    #     href: "http://ingf.github.io/"
+    # }
 ]
