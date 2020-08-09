@@ -11,11 +11,13 @@ summary: notes on everything im wokring on
 # notes on various things im wokring on
 
 ## get ip of running windows container
+
 ```
 get-vm | Where-Object {$_.State -eq 'Running'} | Select -ExpandProperty Networkadapters
-```   
-   
+```
+
 ## info on interactive bash commandlie here documents
+
 ```bash
 rm -rf /tmp/kafka-connect-*; ls -rtl /tmp ;\
 export tmpdir="/tmp/kafka-connect-${RANDOM}" ;\
@@ -25,7 +27,7 @@ echo "version_num: $version_num" ;\
 export prefix="mysql-connector-java-${version_num}" ;\
 echo "prefix: $prefix" ;\
 export url_prefix="https://dev.mysql.com/get/Downloads/Connector-J" ;\
-echo "url prefix $url_prefix" ;\ 
+echo "url prefix $url_prefix" ;\
 export targz="${prefix}.tar.gz" ;\
 export download_url="${url_prefix}/${targz}" ;\
 echo $download_url ;\
@@ -41,22 +43,22 @@ export version="8.0.19" ;\
 export url_prefix='https://dev.mysql.com/get/Downloads/Connector-J' ;\
 bash << EOF
 echo $tmpdir
-export driver="mysql-connector-java-${version}.tar.gz" 
+export driver="mysql-connector-java-${version}.tar.gz"
 export download_url="${url_prefix}/${driver}"
 if [[ ! -d $tmpdir ]]; then if ! mkdir $tmpdir; then echo "error creating $tmpdir"; exit 1; fi ;fi
 if ! cd $tmpdir; then echo "could not cd to $tmpdir"; fi
 if ! wget -P "${tmpdir}/" -q $download_url ; then "echo could not download $driver to $tmpdir "; exit 1; fi
-if tar -zxvf $tmpdir/$driver -C $tmpdir && tar -xf 
+if tar -zxvf $tmpdir/$driver -C $tmpdir && tar -xf
 cd $tmpdir
 ls -rtl $tmpdir
 EOF
 ```
 
 ## containes info
+
 ARM binaries in a container image will not run on POWER container hosts. Containers do not offer compatibility guarantees; only virtualization can do that.  
 
 problem extends to processor architecture, and also versions of the operating system. Try running a RHEL 8 container image on a RHEL 4 container host -- that isn't going to work.''
-
 
 Containers are just regular Linux processes that were started as child processes of a container runtime instead of by a user running commands in a shell. All Linux processes live side by side, whether they are daemons, batch jobs or user commands - the container engine, container runtime, and containers (child processes of the container runtime) are no different. All of these processes make requests to the Linux kernel for protected resources like memory, RAM, TCP sockets, etc.''
 
@@ -98,10 +100,10 @@ go to [https://www.javaguides.net/2018/06/apache-maven-war-plugin.html](https://
 
 Deploying applications to Tomcat
 [https://www.codejava.net/servers/tomcat/how-to-deploy-a-java-web-application-on-tomcat](https://www.codejava.net/servers/tomcat/how-to-deploy-a-java-web-application-on-tomcat)
+
 1. Copy the WAR file into $CATALINA_HOME\webapps directory.
 2. Copy the application’s directory from its location into $CATALINA_HOME\webapps directory.
 3. deploy the web application remotely via a web interface provided by Tomcat’s manager application.
-	[http://localhost:8080/manager](http://localhost:8080/manager)
-
+ [http://localhost:8080/manager](http://localhost:8080/manager)
 
 [https://docs.oracle.com/database/121/ADXDB/xdb11jav.htm#ADXDB4944](https://docs.oracle.com/database/121/ADXDB/xdb11jav.htm#ADXDB4944)

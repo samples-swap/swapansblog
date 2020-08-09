@@ -1,4 +1,4 @@
- Your time is limited, so don’t waste it living someone else’s life.
+# Your time is limited, so don’t waste it living someone else’s life
 
 Hey there i work the financial industry. I studied at NYU and have been a dba, a systems engineer, an architect and now a mishmash of all the titles.
 

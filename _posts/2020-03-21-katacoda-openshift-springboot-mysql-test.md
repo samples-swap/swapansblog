@@ -46,7 +46,7 @@ oc new-app -e MYSQL_USER=root -e MYSQL_PASSWORD=root -e MYSQL_DATABASE=test open
 ## this shows local openshift access but interactive access like this is not idiomatic
 
 ```bash
-oc rsh mysql-56-centos7-1-nvth9 
+oc rsh mysql-56-centos7-1-nvth9
 mysql -u root
 CREATE USER 'root'@'%' IDENTIFIED BY 'root';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
@@ -58,7 +58,7 @@ exit
 
 ```bash
 oc get pods
-oc new-app -e spring_datasource_url=jdbc:mysql://172.30.188.236:3306/test mysql-56-centos7 --name=swapapp 
+oc new-app -e spring_datasource_url=jdbc:mysql://172.30.188.236:3306/test mysql-56-centos7 --name=swapapp
 oc get svc
 oc expose svc springbootmysql
 oc get route
@@ -82,7 +82,7 @@ curl http://swapapp-myproject.192.168.1.204.nip.io/demo/all
 [
 {"name":"UBUNTU 17.10 LTS","lastaudit":1502409600000,"id":1},
 {"name":"RHEL 7","lastaudit":1500595200000,"id":2}
-{"name":"Solaris 11","lastaudit":1502582400000,"id":3},      
+{"name":"Solaris 11","lastaudit":1502582400000,"id":3},
 {"name":"SpringBootMysqlTest","lastaudit":1548892800000,"id":4}
 ]
 ```

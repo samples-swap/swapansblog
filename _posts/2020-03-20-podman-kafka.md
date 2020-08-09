@@ -22,8 +22,9 @@ podman images -a
 podman volume ls
 EOF
 ```
-   
+
 ### create podman zookeeper
+
 ```bash
 podman run -d \
     --net=host \
@@ -31,9 +32,10 @@ podman run -d \
     -e ZOOKEEPER_CLIENT_PORT=32181 \
     -e ZOOKEEPER_TICK_TIME=2000 \
     confluentinc/cp-zookeeper:5.3.1-1
-```   
-   
-### create kafka broker 
+```
+
+### create kafka broker
+
 ```bash
 podman run -d \
     --net=host \
@@ -43,9 +45,10 @@ podman run -d \
     -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
     -p 29092:29092 \
     confluentinc/cp-kafka:5.3.1-1
-```   
-   
+```
+
 ### create schema registry
+
 ```bash
 podman run -d \
   --net=host \
@@ -55,9 +58,10 @@ podman run -d \
   -e SCHEMA_REGISTRY_LISTENERS=http://localhost:8081 \
   -p 8081:8081 \
   confluentinc/cp-schema-registry:5.3.1-1
-```   
-   
+```
+
 ### create topics
+
 ```bash
 podman run \
   --net=host \
@@ -65,31 +69,35 @@ podman run \
   confluentinc/cp-kafka:5.3.1-1 \
   kafka-topics --create --topic quickstart-avro-offsets --partitions 1 --replication-factor 1 --if-not-exists --zookeeper localhost:32181
 ```
+
 ```bash
 podman run \
   --net=host \
   --rm \
   confluentinc/cp-kafka:5.3.1-1 \
   kafka-topics --create --topic quickstart-avro-config --partitions 1 --replication-factor 1 --if-not-exists --zookeeper localhost:32181
-```   
+```
+
 ```bash
 podman run \
   --net=host \
   --rm \
   confluentinc/cp-kafka:5.3.1-1 \
   kafka-topics --create --topic quickstart-avro-status --partitions 1 --replication-factor 1 --if-not-exists --zookeeper localhost:32181
-```   
-   
+```
+
 ### verify topic creation
+
 ```bash
 podman run \
    --net=host \
    --rm \
    confluentinc/cp-kafka:5.3.1-1 \
    kafka-topics --describe --zookeeper localhost:32181
-```   
-   
+```
+
 ### start mysql db container
+
 ```bash
 podman run -d \
     --name quickstart-mysql \
@@ -99,10 +107,12 @@ podman run -d \
     -e MYSQL_DATABASE=connect_test \
     -p 3306:3306 \
     rhscl/mysql-57-rhel7
-```   
-   
-### build a custom Kafka-connect Docker image   
+```
+
+### build a custom Kafka-connect Docker image
+
 - create a Kafka-connect folder to hold the dockerfile and mysql driver
+
 ```bash
 # create a Kafka-connect folder to hold the dockerfile and mysql driver
 mkdir kafka-connect
@@ -118,19 +128,22 @@ EOF
 #
 # get the latest mysql jdbc driver
 wget "http://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/8.0.19/mysql-connector-java-8.0.19.jar" -O mysql-connector-java-8.0.19.jar
-```   
-   
+```
+
 - Build the custom kafka-connect image
+
 ```bash
 cd /root/kafka-connect  ;\
 podman build -t swapanc/kafka-connect:latest . ;\
 podman image ls
-```   
-   
+```
+
 - connect to the mysql container and configure database
+
 ```bash
 podman exec -it quickstart-mysql bash
-```   
+```
+
 ```sql
 mysql -u confluent -p confluent
 CREATE DATABASE IF NOT EXISTS connect_test;
@@ -155,9 +168,10 @@ INSERT INTO test (name, email, department) VALUES ('bob', 'bob@abc.com', 'sales'
 INSERT INTO test (name, email, department) VALUES ('bob', 'bob@abc.com', 'sales');
 INSERT INTO test (name, email, department) VALUES ('bob', 'bob@abc.com', 'sales');
 exit;
-```   
-   
+```
+
 - start custom kafka connect connector
+
 ```bash
 podman run -d \
   --name=kafka-connect-avro \
@@ -186,6 +200,7 @@ podman run -d \
 ```
 
 ## single command
+
 ```bash
 podman stop $(podman ps -a -q) ;\
 podman rm $(podman ps -a -q) ;\
@@ -255,12 +270,14 @@ COPY ${JDBC_JAR_FILE} ${CON_PATH}/${JDBC_JAR_FILE}
 EOF
 podman build -t swapanc/kafka-connect:latest . ;\
 podman image ls
-```   
-   
+```
+
 - connect to the mysql container and configure database
+
 ```bash
 podman exec -it quickstart-mysql bash
-```   
+```
+
 ```sql
 mysql -u confluent -p confluent
 CREATE DATABASE IF NOT EXISTS connect_test;
@@ -285,9 +302,10 @@ INSERT INTO test (name, email, department) VALUES ('bob', 'bob@abc.com', 'sales'
 INSERT INTO test (name, email, department) VALUES ('bob', 'bob@abc.com', 'sales');
 INSERT INTO test (name, email, department) VALUES ('bob', 'bob@abc.com', 'sales');
 exit;
-```   
-   
+```
+
 - start custom kafka connect connector
+
 ```bash
 podman run -d \
   --name=kafka-connect-avro \
@@ -313,4 +331,4 @@ podman run -d \
   -e CONNECT_PLUGIN_PATH=/usr/share/java,/etc/kafka-connect/jars \
   -p 2803:2803 \
   swapanc/kafka-connect
-```   
+```
