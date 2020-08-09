@@ -25,8 +25,8 @@ see ***Disable wireless network adapter*** below
   * Enable all Hyper-v options.
  ![image](https://user-images.githubusercontent.com/10190444/65516620-50ef1680-deaf-11e9-8922-9eba64bf4923.png)
 
-* Add your id to the HyperVisor Administrators Group via PowerShell
-  * run powershell as administrator
+* Add your id to the HyperVisor Admnistrators Group via PowerShell
+  * run powershell as admninistrator
      ![image](https://user-images.githubusercontent.com/10190444/65521387-2739ed80-deb7-11e9-8a51-e5756e708d96.png)
   * Via Powershell add yourself to the Hyperv administrators group:
 
@@ -36,7 +36,7 @@ see ***Disable wireless network adapter*** below
 
 ### Get Codeready containers and pull secret
 
-***This requires a free Redhat account, sign up for one if you don't already have one.
+***This requies a free Redhat account, signup for one if you dont already have one.
 *** Make sure you copy the pull secret as well.
 [Codeready Containers](https://cloud.redhat.com/openshift/install/crc/installer-provisioned?intcmp=7013a000002CtetAAC)
 
@@ -84,7 +84,7 @@ crc oc-env
 
 * Run the command on the last line
 
-```bash
+```
 @FOR /f "tokens=*" %i IN ('crc oc-env') DO @call %i
 ```
 
@@ -103,8 +103,8 @@ In a cmd prompt run:
 type %userprofile%\.crc\cache\crc_hyperv_4.1.14\kubeadmin-password
 ```
 
-* Login as kubeadmin to Openshift
-Set your env as noted above if you haven't done so already.
+* Login as kubeadmin to Openshfit
+Set your env as noted above if you havent done so already.
 use the password as noted above
 
 ```powershell
@@ -113,11 +113,11 @@ oc login -u kubeadmin -p BMLkR-NjA28-v7exC-8bwAk https://api.crc.testing:6443
 
 In Windows explorer navigate to %
 
-## See below if you get any errors
+# See below if you get any errors
 
 ### Disable wireless network adapter
 
-I have had issues where the Hyper-v virtual switch doesn't work if it uses the wireless adapter for the virtual ethernet card.
+I have had issues where the Hyper-v virtual switch doesnt work if it uses the wirless adapter for the virtual ethernet card.
 I have had to disable the wireless adapter so that Hyper-v chooses the Ethernet adapter for Default Switch.
 
 * Go to Control Panel --> Network and Internet --> Network Connections
@@ -136,13 +136,13 @@ rver: dial tcp 172.18.7.77:6443: connectex: A connection attempt failed because 
 pond after a period of time, or established connection failed because connected host has failed to respond.
 ```  
 
-* Open a Powershell cmd prompt with admin privileges
+* Open a Powershell cmd prompt with admin priviliges
 ![image](https://user-images.githubusercontent.com/10190444/65512344-05386f00-dea7-11e9-9e92-6b69f02376d6.png)
 
 * Get the IP address of your Openshift Hyper-v VM
-```get-vm -Name crc | Select -ExpandProperty Network adapters```
+```get-vm -Name crc | Select -ExpandProperty Networkadapters```
 
-* Open Notepad with admin privileges
+* Open Notepad with admin priviliges
 ![image](https://user-images.githubusercontent.com/10190444/65511982-60b62d00-dea6-11e9-8770-d569f8c7c30f.png)
 
 * Open the hosts file in C:\Windows\System32\drivers\etc with ip address entries for your Openshift VM

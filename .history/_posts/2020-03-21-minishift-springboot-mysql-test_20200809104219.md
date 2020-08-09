@@ -36,7 +36,7 @@ FLUSH PRIVILEGES;
 exit
 exit
 oc get svc
-oc new-app -e spring_datastore_url=jdbc:mysql://172.30.103.248:3306/test mysql-56-centos7 --name=swapapp
+oc new-app -e spring_datasource_url=jdbc:mysql://172.30.103.248:3306/test mysql-56-centos7 --name=swapapp
 oc get pods
 logs -f springbootmysql-1-5ngv4
 oc get svc

@@ -46,4 +46,4 @@ finally oracle drivers are in maven central.
 </dependency>  
 ```
 
-## note that db6.jar is a legacy name, xdb.jar is the new name
+**note that db6.jar is a legacy name, xdb.jar is the new name**
