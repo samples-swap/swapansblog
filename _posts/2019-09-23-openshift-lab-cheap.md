@@ -62,7 +62,7 @@ amazon link:
    
 USB Flash Drive Description:   
 Kingston Digital 8GB Data Traveler 3.0 USB Flash Drive - Yellow (DTIG4/8GB )   
-amazon link:   
+amazon link:    bbgv
 [USB Flash Drive]   
    
 RAM Description:   
